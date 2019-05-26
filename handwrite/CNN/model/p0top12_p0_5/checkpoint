@@ -1,0 +1,4 @@
+model_checkpoint_path: "cnn.ckpt-6621"
+all_model_checkpoint_paths: "cnn.ckpt-5401"
+all_model_checkpoint_paths: "cnn.ckpt-6601"
+all_model_checkpoint_paths: "cnn.ckpt-6621"
