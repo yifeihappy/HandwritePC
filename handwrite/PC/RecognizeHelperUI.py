@@ -5,10 +5,11 @@ from HWRecognizeThread import HWRecognizeThread
 
 class RecognizeHelper:
 
-    def __init__(self):
+    def __init__(self, frame):
         print("RecognizeHelper start...")
+        self.frame = frame
         # ****** 参数设置 ******
-        user = 'p0top12_p12_ 5'
+        user = 'p0top12_p12_5'
         test_user = '../CNN/data/ticwatch1/ring1/p3_5.bin'
         self.testDataController = DataController(test_user)
         nclass = self.testDataController.nclass
@@ -58,6 +59,7 @@ class RecognizeHelper:
             # print(pre_y)
         self.recog_session = sess
         print("Load CNN model successfully!")
+        self.frame.m_staticText_model.SetLabel('Model OK')
 
     def recognize_handwriting_character(self, data):
         data_list = []
@@ -66,6 +68,7 @@ class RecognizeHelper:
                                                                     self.is_training: False})
         print("predict:")
         print(pre_y[0])
+        self.frame.m_textCtrl.SetValue(self.frame.m_textCtrl.GetValue() + str(pre_y[0]))
 
     # 识别动作
     # 权重变量
